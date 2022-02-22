@@ -1,0 +1,46 @@
+<?php
+
+namespace App\Http\Requests;
+
+use Illuminate\Foundation\Http\FormRequest;
+
+class CreateTopicRequest extends FormRequest
+{
+    /**
+     * Determine if the user is authorized to make this request.
+     *
+     * @return bool
+     */
+    public function authorize()
+    {
+        return true;
+
+    }
+
+    /**
+     * Get the validation rules that apply to the request.
+     *
+     * @return array
+     */
+    public function rules()
+    {
+        return [
+          'name'      => 'required|max:10',
+          'content'   => 'required|max:2000',
+        ];
+    }
+    public function messages() {
+        return [
+            'name.required'     => '名前を入力してください',
+            'name.max'          => '名前は10文字でお願いします。',
+            'content.required'  => 'コメントを入力してください',
+            'content.max'       => 'コメントは2000文字でお願いします。',
+        ];
+    }
+    public function attributes() {
+        return [
+            'name' => '名前',
+            'content' => 'コメント',
+        ];
+    }
+}
