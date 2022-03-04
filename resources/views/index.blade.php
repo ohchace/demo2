@@ -7,6 +7,9 @@
 
 
     <style>
+    body {
+	background-color:#AFEEEE;		/*ページ全体の背景色*/
+    }
     h1 {
       display: none;
     }
